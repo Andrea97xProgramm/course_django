@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Profile</h1>
+    <p>Name: {{ employee.first_name }}</p>
+    <p>Last_name: {{ employee.last_name }}</p>
+
+
+
+    {% if user.is_superuser %}
+        <a href="{% url 'edit_employee' employee.pk %}">Edit</a>
+        <a href="{% url 'delete_employee' employee.pk %}">Delete</a>
+    {% endif %}
+{% endblock %}
